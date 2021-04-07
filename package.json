@@ -1,0 +1,49 @@
+{
+  "name": "dogeswap-contracts",
+  "version": "0.1.0",
+  "description": "dogeswap-contracts",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Dogeswap-Fans/dogeswap-contracts.git"
+  },
+  "author": "dogeswapfans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dogeswap-Fans/dogeswap-contracts/issues"
+  },
+  "homepage": "https://github.com/Dogeswap-Fans/dogeswap-contracts#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.4.1",
+    "@truffle/hdwallet-provider": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.6",
+    "@types/mocha": "^5.2.7",
+    "axios": "^0.20.0",
+    "chai": "^4.2.0",
+    "commander": "^6.1.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethereumjs-util": "^7.0.4",
+    "ethers": "^5.0.32",
+    "mocha": "^6.2.2",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.0",
+    "solc": "0.6.12",
+    "truffle-plugin-verify": "^0.5.7",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  },
+  "scripts": {
+    "precompile": "rimraf ./build/",
+    "compile": "waffle",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "generate-merkle-root": "ts-node scripts/generate-merkle-root.ts",
+    "generate-merkle-root:example": "ts-node scripts/generate-merkle-root.ts --input scripts/example.json",
+    "prepublishOnly": "yarn test"
+  }
+}
