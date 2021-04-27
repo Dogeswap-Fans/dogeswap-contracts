@@ -3,10 +3,13 @@ pragma solidity ^0.6.12;
 pragma experimental ABIEncoderV2;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "../interfaces/IDOG.sol";
+import {IERC20 as SIERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+interface IDOG is SIERC20 {
+    function mint(address to, uint256 amount) external returns (bool);
+    function totalSupply() external override view returns (uint256);
+}
 
 contract DogeswapPools is Ownable {
     using SafeMath for uint256;
